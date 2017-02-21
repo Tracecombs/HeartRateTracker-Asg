@@ -50,8 +50,32 @@ public class HeartRateAdapter  extends ArrayAdapter<HeartRate> {
         HeartRate hr = hrList.getHeartRate(position);
 
         TextView tvPulse=(TextView)view.findViewById(R.id.textViewPulse);
-        tvPulse.setText(hr.getPulse().toString());
+        tvPulse.setText(hr.getPulse().toString() + " - " + hr.getRangeName().toString() + " - " + hr.getRangeDescription() );
+        if(hr.getRangeName() == "Red Zone") {
+            tvPulse.setTextColor(ContextCompat.getColor(context, R.color.colorZone1));
+            tvPulse.setTextSize(32);
+        }
 
+        else if (hr.getRangeName() == "Anaerobic"){
+            tvPulse.setTextColor(ContextCompat.getColor(context, R.color.colorZone2));
+            tvPulse.setTextSize(24);
+        }
+        else if (hr.getRangeName() == "Aerobic"){
+            tvPulse.setTextColor(ContextCompat.getColor(context, R.color.colorZone3));
+            tvPulse.setTextSize(20);
+        }
+        else if (hr.getRangeName() == "Endurance"){
+            tvPulse.setTextColor(ContextCompat.getColor(context, R.color.colorZone4));
+            tvPulse.setTextSize(16);
+        }
+        else if (hr.getRangeName() == "Moderate"){
+            tvPulse.setTextColor(ContextCompat.getColor(context, R.color.colorZone5));
+            tvPulse.setTextSize(12);
+        }
+        else if (hr.getRangeName() == "Resting"){
+            tvPulse.setTextColor(ContextCompat.getColor(context, R.color.colorZone6));
+            tvPulse.setTextSize(12);
+        }
         return(view);
     }
 
